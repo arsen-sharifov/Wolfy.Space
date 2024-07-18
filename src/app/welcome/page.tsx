@@ -1,3 +1,3 @@
 export default function WelcomePage() {
-    return <div>Welcome Page</div>
+  return <div>Welcome Page</div>;
 }
