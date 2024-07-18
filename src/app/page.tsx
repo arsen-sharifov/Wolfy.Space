@@ -8,7 +8,7 @@ export default function Welcome() {
           <h2 className="text-2xl text-white">
             Customize your profile, share posts, play games, and connect with friends in the ultimate social network experience
           </h2>
-          <div className="w-[40vw] h-[50vh] bg-[#155B9D] rounded-[10px] p-5 shadow-md flex flex-col items-center mt-10">
+          <div className="w-[40vw] min-h-fit bg-[#155B9D] rounded-[10px] p-5 shadow-md flex flex-col items-center mt-10">
             <div className="flex justify-between w-[50%]">
               <div className="flex flex-col items-center">
                 <span className="text-2xl text-white cursor-pointer p-2.5 transition-colors duration-300 hover:text-[#cce7ff]">
