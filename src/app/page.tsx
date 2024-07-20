@@ -1,4 +1,30 @@
+'use client';
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 export default function Welcome() {
+  const router = useRouter();
+
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = (event: any) => {
+    setLogin(event.target.value);
+  };
+
+  const handlePassword = (event: any) => {
+    setPassword(event.target.value);
+  };
+
+  const handleCredentials = () => {
+    if (login === '123' && password === '123') {
+      router.push('/Home');
+    } else {
+      alert('wrong pass');
+    }
+  };
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#0D3B66] font-abril">
       <div className="flex h-[90%] w-[90%] items-center justify-around">
