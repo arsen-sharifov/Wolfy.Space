@@ -2,12 +2,42 @@ import { useRouter } from 'next/router';
 import React from 'react';
 
 const games = [
-  { id: 1, name: 'Wolfy Cards', image: '/post_1.png', description: 'Description for game 1' },
-  { id: 2, name: 'Wolfy Cards', image: '/post_2.png', description: 'Description for game 2' },
-  { id: 3, name: 'Wolfy Cards', image: '/post_1.png', description: 'Description for game 3' },
-  { id: 4, name: 'Wolfy Cards', image: '/post_2.png', description: 'Description for game 4' },
-  { id: 5, name: 'Wolfy Cards', image: '/post_1.png', description: 'Description for game 5' },
-  { id: 6, name: 'Wolfy Cards', image: '/post_2.png', description: 'Description for game 6' },
+  {
+    id: 1,
+    name: 'Crystal Kingdom',
+    image: '/Games/CrystalKingdom.webp',
+    description: 'Description for game 1',
+  },
+  {
+    id: 2,
+    name: 'Mystic Forest Adventure',
+    image: '/Games/MysticForestAdventure.webp',
+    description: 'Description for game 2',
+  },
+  {
+    id: 3,
+    name: 'Sky Pirates',
+    image: '/Games/SkyPirates.webp',
+    description: 'Description for game 3',
+  },
+  {
+    id: 4,
+    name: 'Vampire Hunters',
+    image: '/Games/VampireHunters.webp',
+    description: 'Description for game 4',
+  },
+  {
+    id: 5,
+    name: 'Wolfy Cards',
+    image: '/Games/WolfyCards.webp',
+    description: 'Description for game 5',
+  },
+  {
+    id: 6,
+    name: 'Zombie Apocalypse',
+    image: '/Games/ZombieApocalypse.webp',
+    description: 'Description for game 6',
+  },
 ];
 
 interface Params {

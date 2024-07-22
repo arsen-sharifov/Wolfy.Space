@@ -36,15 +36,24 @@ const ProfilePage = () => {
           <div className="w-full max-w-2xl rounded-lg bg-white p-6 shadow-lg">
             <img src="/post_1.png" alt="Post" className="mb-4 h-auto w-full rounded" />
             <p>
-              Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-              lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+              The popular game 'Mystic Forest Adventures' has just released a highly anticipated
+              expansion pack. This new update introduces several new levels, magical creatures, and
+              challenging quests. Players can now explore the enchanted Crystal Caves and battle
+              against the fierce Dragon King. The expansion pack also includes enhanced graphics and
+              new music tracks, providing a more immersive gaming experience. Fans are excited about
+              the new content and are eagerly diving back into the mystical world.
             </p>
           </div>
           <div className="w-full max-w-2xl rounded-lg bg-white p-6 shadow-lg">
             <img src="/post_2.png" alt="Post" className="mb-4 h-auto w-full rounded" />
             <p>
-              Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-              lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+              Renowned DJ and music producer, DJ SonicWave, has released his latest album, "Eclipse
+              of Sound." The album features an innovative mix of electronic beats, ambient
+              soundscapes, and collaborations with various artists from around the world. Critics
+              are praising the album for its unique blend of genres and cutting-edge production
+              techniques. "Eclipse of Sound" is set to dominate the charts and has already become a
+              favorite among electronic music enthusiasts. Fans can stream the album on all major
+              platforms starting today.
             </p>
           </div>
         </div>
