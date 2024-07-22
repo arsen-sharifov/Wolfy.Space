@@ -54,14 +54,21 @@ export default function Welcome() {
               <input
                 type="text"
                 placeholder="Login"
+                value={login}
+                onChange={handleLogin}
                 className="my-2.5 h-[45px] w-[100%] rounded-md border-none p-2.5 text-lg"
               />
               <input
                 type="password"
                 placeholder="Password"
+                value={password}
+                onChange={handlePassword}
                 className="my-2.5 h-[45px] w-[100%] rounded-md border-none p-2.5 text-lg"
               />
-              <button className="mt-5 w-[100px] cursor-pointer self-end rounded-md border-none bg-[#89CFF0] p-2.5 text-lg text-white transition-colors duration-300 hover:bg-[#67a6c3]">
+              <button
+                onClick={handleCredentials}
+                className="mt-5 w-[100px] cursor-pointer self-end rounded-md border-none bg-[#89CFF0] p-2.5 text-lg text-white transition-colors duration-300 hover:bg-[#67a6c3]"
+              >
                 Go!
               </button>
             </div>
