@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Sidebar = () => {
   return (
@@ -10,13 +11,23 @@ const Sidebar = () => {
         <span className="text-lg text-white">Profil Name</span>
       </div>
       <nav className="flex w-full flex-col space-y-2">
-        <button className="w-full rounded-md bg-blue-300 py-2 text-black">Home</button>
-        <button className="w-full rounded-md bg-blue-300 py-2 text-black">News</button>
-        <button className="w-full rounded-md bg-blue-300 py-2 text-black">Games</button>
-        <button className="w-full rounded-md border-black bg-blue-300 py-2 text-black">
-          Settings
-        </button>
-        <button className="w-full rounded-md bg-blue-300 py-2 text-black">Exit</button>
+        <Link href="/" className="w-full">
+          <button className="w-full rounded-md bg-blue-300 py-2 text-black">Home</button>
+        </Link>
+        <Link href="/News" className="w-full">
+          <button className="w-full rounded-md bg-blue-300 py-2 text-black">News</button>
+        </Link>
+        <Link href="/Games" className="w-full">
+          <button className="w-full rounded-md bg-blue-300 py-2 text-black">Games</button>
+        </Link>
+        <Link href="/Settings" className="w-full">
+          <button className="w-full rounded-md border-black bg-blue-300 py-2 text-black">
+            Settings
+          </button>
+        </Link>
+        <Link href="/Exit" className="w-full">
+          <button className="w-full rounded-md bg-blue-300 py-2 text-black">Exit</button>
+        </Link>
       </nav>
       <div className="flex-grow"></div>
       <div className="mb-4">
