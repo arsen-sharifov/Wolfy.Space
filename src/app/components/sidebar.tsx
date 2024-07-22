@@ -11,22 +11,32 @@ const Sidebar = () => {
         <span className="text-lg text-white">Profil Name</span>
       </div>
       <nav className="flex w-full flex-col space-y-2">
-        <Link href="/" className="w-full">
-          <button className="w-full rounded-md bg-blue-300 py-2 text-black">Home</button>
+        <Link href="/Home" legacyBehavior>
+          <a className="w-full">
+            <button className="w-full rounded-md bg-blue-300 py-2 text-black">Home</button>
+          </a>
         </Link>
-        <Link href="/News" className="w-full">
-          <button className="w-full rounded-md bg-blue-300 py-2 text-black">News</button>
+        <Link href="/News" legacyBehavior>
+          <a className="w-full">
+            <button className="w-full rounded-md bg-blue-300 py-2 text-black">News</button>
+          </a>
         </Link>
-        <Link href="/Games" className="w-full">
-          <button className="w-full rounded-md bg-blue-300 py-2 text-black">Games</button>
+        <Link href="/Games" legacyBehavior>
+          <a className="w-full">
+            <button className="w-full rounded-md bg-blue-300 py-2 text-black">Games</button>
+          </a>
         </Link>
-        <Link href="/Settings" className="w-full">
-          <button className="w-full rounded-md border-black bg-blue-300 py-2 text-black">
-            Settings
-          </button>
+        <Link href="/Settings" legacyBehavior>
+          <a className="w-full">
+            <button className="w-full rounded-md border-black bg-blue-300 py-2 text-black">
+              Settings
+            </button>
+          </a>
         </Link>
-        <Link href="/Exit" className="w-full">
-          <button className="w-full rounded-md bg-blue-300 py-2 text-black">Exit</button>
+        <Link href="/Exit" legacyBehavior>
+          <a className="w-full">
+            <button className="w-full rounded-md bg-blue-300 py-2 text-black">Exit</button>
+          </a>
         </Link>
       </nav>
       <div className="flex-grow"></div>
