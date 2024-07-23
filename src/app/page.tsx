@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 
 export default function Welcome() {
   const router = useRouter();
+  const { t } = useTranslation('common');
 
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
@@ -26,25 +28,22 @@ export default function Welcome() {
   };
 
   return (
-    <div className="bg-bg-color flex min-h-screen items-center justify-center font-abril">
+    <div className="flex min-h-screen items-center justify-center bg-bg-color font-abril">
       <div className="flex h-[90%] w-[90%] items-center justify-around">
         <div className="flex-1">
-          <h2 className="text-text-color text-2xl">Welcome to Wolfy.space!</h2>
+          <h2 className="text-2xl text-text-color">{t('welcome')}</h2>
           <br />
-          <h2 className="text-text-color text-2xl">
-            Customize your profile, share posts, play games, and connect with friends in the
-            ultimate social network experience
-          </h2>
-          <div className="bg-primary-color mt-10 flex min-h-fit w-[40vw] flex-col items-center rounded-[10px] p-5 shadow-md">
+          <h2 className="text-2xl text-text-color">{t('description')}</h2>
+          <div className="mt-10 flex min-h-fit w-[40vw] flex-col items-center rounded-[10px] bg-primary-color p-5 shadow-md">
             <div className="flex w-[50%] justify-between">
               <div className="flex flex-col items-center">
-                <span className="text-text-color cursor-pointer p-2.5 text-2xl transition-colors duration-300">
+                <span className="cursor-pointer p-2.5 text-2xl text-text-color transition-colors duration-300">
                   Sign In
                 </span>
                 <div className="bg-text-color h-[8px] w-[70px] self-center rounded-md transition-colors duration-300" />
               </div>
               <div className="flex flex-col items-center">
-                <span className="text-text-color cursor-pointer p-2.5 text-2xl transition-colors duration-300">
+                <span className="cursor-pointer p-2.5 text-2xl text-text-color transition-colors duration-300">
                   Sign Up
                 </span>
                 <div className="bg-text-color h-[8px] w-[70px] self-center rounded-md transition-colors duration-300" />
@@ -56,18 +55,18 @@ export default function Welcome() {
                 placeholder="Login"
                 value={login}
                 onChange={handleLogin}
-                className="bg-card-bg-color text-text-color my-2.5 h-[45px] w-[100%] rounded-md border-none p-2.5 text-lg"
+                className="my-2.5 h-[45px] w-[100%] rounded-md border-none bg-card-bg-color p-2.5 text-lg text-text-color"
               />
               <input
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={handlePassword}
-                className="bg-card-bg-color text-text-color my-2.5 h-[45px] w-[100%] rounded-md border-none p-2.5 text-lg"
+                className="my-2.5 h-[45px] w-[100%] rounded-md border-none bg-card-bg-color p-2.5 text-lg text-text-color"
               />
               <button
                 onClick={handleCredentials}
-                className="bg-primary-color hover:bg-secondary-color mt-5 w-[100px] cursor-pointer self-end rounded-md border-none p-2.5 text-lg text-white transition-colors duration-300"
+                className="mt-5 w-[100px] cursor-pointer self-end rounded-md border-none bg-primary-color p-2.5 text-lg text-white transition-colors duration-300 hover:bg-secondary-color"
               >
                 Go!
               </button>
