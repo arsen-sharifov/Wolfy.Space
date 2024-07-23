@@ -2,14 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer base {
+  :root {
+    --bg-color: #F5F5F5;
+    --text-color: #455A64;
+    --primary-color: #90CAF9;
+    --secondary-color: #E3F2FD;
+    --border-color: #B0BEC5;
+    --card-bg-color: #FFFFFF;
+    --header-bg-color: #F5F5F5;
+    --footer-bg-color: #B0BEC5;
+  }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+  [data-theme='dark'] {
+    --bg-color: #121212;
+    --text-color: #E0F7FA;
+    --primary-color: #26C6DA;
+    --secondary-color: #1E1E1E;
+    --border-color: #263238;
+    --card-bg-color: #1E1E1E;
+    --header-bg-color: #121212;
+    --footer-bg-color: #263238;
+  }
+
+  [data-theme='custom'] {
+    --bg-color: #CCEFFD;
+    --text-color: #004170;
+    --primary-color: #3182F6;
+    --secondary-color: #66C2FF;
+    --border-color: #004170;
+    --card-bg-color: #90DAFF;
+    --header-bg-color: #3182F6;
+    --footer-bg-color: #004170;
+  }
+
+  [data-theme='lavender'] {
+    --bg-color: #E6E6FA;
+    --text-color: #4B0082;
+    --primary-color: #9370DB;
+    --secondary-color: #E6E6FA;
+    --border-color: #4B0082;
+    --card-bg-color: #E6E6FA;
+    --header-bg-color: #9370DB;
+    --footer-bg-color: #4B0082;
+  }
+
+  [data-theme='forest'] {
+    --bg-color: #DFF8E7;
+    --text-color: #2D6B56;
+    --primary-color: #5FA68E;
+    --secondary-color: #DFF8E7;
+    --border-color: #2D6B56;
+    --card-bg-color: #DFF8E7;
+    --header-bg-color: #5FA68E;
+    --footer-bg-color: #2D6B56;
+  }
+
+  [data-theme='orange'] {
+    --bg-color: #FFF3E0;
+    --text-color: #E65100;
+    --primary-color: #FB8C00;
+    --secondary-color: #FFE0B2;
+    --border-color: #EF6C00;
+    --card-bg-color: #FFE0B2;
+    --header-bg-color: #FB8C00;
+    --footer-bg-color: #E65100;
+  }
+
+  [data-theme='pink'] {
+    --bg-color: #FCE4EC;
+    --text-color: #880E4F;
+    --primary-color: #EC407A;
+    --secondary-color: #F8BBD0;
+    --border-color: #AD1457;
+    --card-bg-color: #F8BBD0;
+    --header-bg-color: #EC407A;
+    --footer-bg-color: #880E4F;
+  }
+
+  [data-theme='aquamarine'] {
+    --bg-color: #E0F7FA;
+    --text-color: #006064;
+    --primary-color: #00ACC1;
+    --secondary-color: #B2EBF2;
+    --border-color: #00838F;
+    --card-bg-color: #B2EBF2;
+    --header-bg-color: #00ACC1;
+    --footer-bg-color: #006064;
+  }
 }

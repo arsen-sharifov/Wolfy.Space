@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { usePathname } from 'next/navigation';
+import { ThemeProvider } from './components/themeProvide';
 import './globals.css';
 
 import ClientWrapper from './components/clientWrapper';
@@ -17,6 +18,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <head>
@@ -28,7 +30,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <ClientWrapper>{children}</ClientWrapper>
+        <ThemeProvider><ClientWrapper>{children}</ClientWrapper></ThemeProvider>
       </body>
     </html>
   );
