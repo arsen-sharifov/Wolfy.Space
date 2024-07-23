@@ -12,19 +12,19 @@ const games = [
 
 const GamesPage = () => {
   return (
-    <div className="flex min-h-screen justify-center bg-blue-700 p-6">
+    <div className="bg-bg-color flex min-h-screen justify-center p-6">
       <div className="w-[85vw]">
-        <h2 className="mb-4 text-xl font-bold text-white">Wolfy Games</h2>
+        <h2 className="text-text-color mb-4 text-xl font-bold">Wolfy Games</h2>
         <div className="grid grid-cols-3 gap-4">
           {games.map((game) => (
             <Link key={game.id} href={`/Games/${game.id}`} passHref legacyBehavior>
-              <a className="cursor-pointer rounded-lg bg-white p-4 shadow-lg">
+              <a className="bg-primary-color cursor-pointer rounded-lg p-4 shadow-lg">
                 <img
                   src={game.image}
                   alt={game.name}
                   className="h-70 mb-2 w-full rounded object-cover"
                 />
-                <h3 className="text-center font-bold text-black">{game.name}</h3>
+                <h3 className="text-text-color text-center font-bold">{game.name}</h3>
               </a>
             </Link>
           ))}

@@ -3,39 +3,47 @@ import Link from 'next/link';
 
 const Sidebar = () => {
   return (
-    <div className="fixed left-0 top-0 flex h-screen w-[15vw] flex-col items-center bg-blue-800 p-4">
+    <div className="bg-primary-color fixed left-0 top-0 flex h-screen w-[15vw] flex-col items-center p-4">
       <div className="mb-4 flex flex-col items-center">
         <div className="mb-2 h-16 w-16 rounded-full">
           <img src="/avatar.png" alt="Logo" className="h-46" />
         </div>
-        <span className="text-lg text-white">Profil Name</span>
+        <span className="text-text-color text-lg">Profil Name</span>
       </div>
       <nav className="flex w-full flex-col space-y-2">
         <Link href="/Home" legacyBehavior>
           <a className="w-full">
-            <button className="w-full rounded-md bg-blue-300 py-2 text-black">Home</button>
+            <button className="bg-secondary-color text-text-color w-full rounded-md py-2">
+              Home
+            </button>
           </a>
         </Link>
         <Link href="/News" legacyBehavior>
           <a className="w-full">
-            <button className="w-full rounded-md bg-blue-300 py-2 text-black">News</button>
+            <button className="bg-secondary-color text-text-color w-full rounded-md py-2">
+              News
+            </button>
           </a>
         </Link>
         <Link href="/Games" legacyBehavior>
           <a className="w-full">
-            <button className="w-full rounded-md bg-blue-300 py-2 text-black">Games</button>
+            <button className="bg-secondary-color text-text-color w-full rounded-md py-2">
+              Games
+            </button>
           </a>
         </Link>
         <Link href="/Settings" legacyBehavior>
           <a className="w-full">
-            <button className="w-full rounded-md border-black bg-blue-300 py-2 text-black">
+            <button className="bg-secondary-color text-text-color w-full rounded-md py-2">
               Settings
             </button>
           </a>
         </Link>
         <Link href="/Exit" legacyBehavior>
           <a className="w-full">
-            <button className="w-full rounded-md bg-blue-300 py-2 text-black">Exit</button>
+            <button className="bg-secondary-color text-text-color w-full rounded-md py-2">
+              Exit
+            </button>
           </a>
         </Link>
       </nav>
