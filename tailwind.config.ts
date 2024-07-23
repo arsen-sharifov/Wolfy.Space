@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+const themes = require('./themes');
 
 const config: Config = {
   content: [
@@ -14,6 +15,16 @@ const config: Config = {
       },
       fontFamily: {
         abril: ['Abril Fatface', 'cursive'],
+      },
+      backgroundColor: {
+        'bg-color': 'var(--bg-color)',
+        'card-bg-color': 'var(--card-bg-color)',
+        'primary-color': 'var(--primary-color)',
+        'secondary-color': 'var(--secondary-color)',
+      },
+      textColor: {
+        'text-color': 'var(--text-color)',
+        'secondary-color': 'var(--secondary-color)',
       },
     },
   },
