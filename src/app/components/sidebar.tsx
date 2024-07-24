@@ -1,7 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 const Sidebar = () => {
+  const { t, i18n } = useTranslation('common');
   return (
     <div className="bg-primary-color fixed left-0 top-0 flex h-screen w-[15vw] flex-col items-center p-4">
       <div className="mb-4 flex flex-col items-center">
@@ -14,35 +16,35 @@ const Sidebar = () => {
         <Link href="/Home" legacyBehavior>
           <a className="w-full">
             <button className="bg-secondary-color text-text-color w-full rounded-md py-2">
-              Home
+              {t('Home')}
             </button>
           </a>
         </Link>
         <Link href="/News" legacyBehavior>
           <a className="w-full">
             <button className="bg-secondary-color text-text-color w-full rounded-md py-2">
-              News
+              {t('News')}
             </button>
           </a>
         </Link>
         <Link href="/Games" legacyBehavior>
           <a className="w-full">
             <button className="bg-secondary-color text-text-color w-full rounded-md py-2">
-              Games
+              {t('Games')}
             </button>
           </a>
         </Link>
         <Link href="/Settings" legacyBehavior>
           <a className="w-full">
             <button className="bg-secondary-color text-text-color w-full rounded-md py-2">
-              Settings
+              {t('Settings')}
             </button>
           </a>
         </Link>
         <Link href="/Exit" legacyBehavior>
           <a className="w-full">
             <button className="bg-secondary-color text-text-color w-full rounded-md py-2">
-              Exit
+              {t('Exit')}
             </button>
           </a>
         </Link>
