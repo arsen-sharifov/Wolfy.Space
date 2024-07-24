@@ -26,16 +26,20 @@ const SettingsPage = () => {
 
   const [themeDropdownOpen, setThemeDropdownOpen] = useState(false);
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'light';
-    }
-    return 'light';
-  });
+  const [theme, setTheme] = useState<string>('light');
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    if (typeof window !== 'undefined') {
+      const storedTheme = localStorage.getItem('theme') || 'light';
+      setTheme(storedTheme);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
   }, [theme]);
 
   const changeTheme = (newTheme: string) => {
@@ -45,7 +49,9 @@ const SettingsPage = () => {
 
   const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
-    localStorage.setItem('language', lang);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', lang);
+    }
     setLanguageDropdownOpen(false);
   };
 
@@ -165,7 +171,7 @@ const SettingsPage = () => {
                   >
                     <path
                       fillRule="evenodd"
-                      d="M5.293 9.293a1 1 011.414 0L10 12.586l3.293-3.293a1 1 011.414 1.414l-4 4a1 1 01-1.414 0l-4-4a1 1 010-1.414z"
+                      d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 111.414 1.414l-4 4a1 1 01-1.414 0l-4-4a1 1 010-1.414z"
                       clipRule="evenodd"
                     />
                   </svg>

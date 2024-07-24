@@ -8,6 +8,7 @@ import ua from './public/locales/ua/common.json';
 import de from './public/locales/de/common.json';
 import pt from './public/locales/pt/common.json';
 import fr from './public/locales/fr/common.json';
+import { useEffect } from 'react';
 
 const resources = {
   en: {
@@ -30,7 +31,11 @@ const resources = {
   },
 };
 
-const savedLanguage = localStorage.getItem('language') || 'pl';
+let savedLanguage = 'en';
+
+if (typeof window !== 'undefined') {
+  savedLanguage = localStorage.getItem('language') || 'en';
+}
 
 i18n.use(initReactI18next).init({
   resources,
@@ -40,5 +45,16 @@ i18n.use(initReactI18next).init({
     escapeValue: false,
   },
 });
+
+export function I18nInit() {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const language = localStorage.getItem('language') || 'en';
+      i18n.changeLanguage(language);
+    }
+  }, []);
+
+  return null;
+}
 
 export default i18n;

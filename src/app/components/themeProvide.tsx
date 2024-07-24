@@ -10,16 +10,23 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState(() => {
+  const [theme, setTheme] = useState<string>('light');
+
+  // Використовуйте useEffect для отримання теми з localStorage тільки на клієнтській стороні
+  useEffect(() => {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'light';
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        setTheme(storedTheme);
+      }
     }
-    return 'light';
-  });
+  }, []);
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    if (typeof window !== 'undefined') {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
   }, [theme]);
 
   return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
