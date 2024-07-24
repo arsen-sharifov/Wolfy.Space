@@ -26,9 +26,9 @@ const news = [
 
 const NewsPage = () => {
   return (
-    <div className="bg-bg-color min-h-screen p-6">
+    <div className="min-h-screen bg-bg-color p-6">
       <div className="mx-auto w-[85vw]">
-        <h2 className="text-text-color mb-4 text-xl font-bold">Wolfy Shorts</h2>
+        <h2 className="mb-4 text-xl font-bold text-text-color">Wolfy Shorts</h2>
         <div className="mb-8 grid grid-cols-6 gap-4">
           {shorts.map((short) => (
             <div key={short.id} className="h-[256px] w-[128px] rounded-lg bg-white shadow-lg">
@@ -40,10 +40,10 @@ const NewsPage = () => {
             </div>
           ))}
         </div>
-        <h2 className="text-text-color mb-4 text-xl font-bold">Wolfy News</h2>
+        <h2 className="mb-4 text-xl font-bold text-text-color">Wolfy News</h2>
         <div className="space-y-8">
           {news.map((item) => (
-            <div key={item.id} className="bg-primary-color rounded-lg p-4 shadow-lg">
+            <div key={item.id} className="rounded-lg bg-primary-color p-4 shadow-lg">
               <img
                 src={item.image}
                 alt={`News ${item.id}`}

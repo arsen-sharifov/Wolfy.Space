@@ -3,8 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Sidebar from './sidebar';
 import { I18nextProvider } from 'react-i18next';
-import i18n from '../../../i18n'; // імпортуйте налаштування i18n
-import { useEffect } from 'react';
+import i18n from '../../../i18n';
 
 const HIDE_SIDEBAR_ROUTES = ['/', '/login', '/signup'];
 

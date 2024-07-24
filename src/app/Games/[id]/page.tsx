@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/router';
 import React from 'react';
 
 const games = [
@@ -56,10 +55,10 @@ const GameDetailPage = ({ params }: { params: Params }) => {
   }
 
   return (
-    <div className="bg-primary-color flex min-h-screen justify-center p-6">
+    <div className="flex min-h-screen justify-center bg-primary-color p-6">
       <div className="w-full max-w-3xl">
-        <h2 className="text-text-color mb-4 text-xl font-bold">{game.name}</h2>
-        <div className="text-text-color rounded-lg bg-blue-800 p-6 shadow-lg">
+        <h2 className="mb-4 text-xl font-bold text-text-color">{game.name}</h2>
+        <div className="rounded-lg bg-blue-800 p-6 text-text-color shadow-lg">
           <img src={game.image} alt={game.name} className="mb-4 h-auto w-full rounded" />
           <p className="text-center">{game.description}</p>
         </div>
