@@ -50,42 +50,46 @@ const SettingsPage = () => {
   };
 
   return (
-    <div className="bg-bg-color flex min-h-screen justify-center p-6">
+    <div className="flex min-h-screen justify-center bg-bg-color p-6">
       <div className="w-[85vw]">
-        <div className="bg-primary-color text-text-color mb-8 rounded-lg p-6 shadow-lg">
+        <div className="mb-8 rounded-lg bg-primary-color p-6 text-text-color shadow-lg">
           <h2 className="font mb-4 text-xl">{t('SettingsGeneral')}</h2>
           <div className="items-c mb-6 flex">
-            <img src="/avatar.png" alt="Avatar" className="mr-4 h-24 w-24 rounded-full" />
-            <button className="bg-secondary-color text-text-color ml-4 rounded px-4 py-2">
+            <img
+              src="/assets/home/images/avatar.png"
+              alt="Avatar"
+              className="mr-4 h-24 w-24 rounded-full"
+            />
+            <button className="ml-4 rounded bg-secondary-color px-4 py-2 text-text-color">
               {t('ChangeAvatar')}
             </button>
           </div>
           <div className="mb-4 flex items-center">
             <div className="w-1/2 text-lg">Jafry Goodman</div>
-            <button className="bg-secondary-color text-text-color ml-4 rounded px-4 py-2">
+            <button className="ml-4 rounded bg-secondary-color px-4 py-2 text-text-color">
               {t('ChangeName')}
             </button>
           </div>
           <div className="mb-4 flex items-center">
             <div className="w-1/2 text-lg">lorem ipsum ....</div>
-            <button className="bg-secondary-color text-text-color ml-4 rounded px-4 py-2">
+            <button className="ml-4 rounded bg-secondary-color px-4 py-2 text-text-color">
               {t('ChangeDescription')}
             </button>
           </div>
           <div className="mb-4 flex items-center">
             <div className="w-1/2 text-lg">jafry@gmail.com</div>
-            <button className="bg-secondary-color text-text-color ml-4 rounded px-4 py-2">
+            <button className="ml-4 rounded bg-secondary-color px-4 py-2 text-text-color">
               {t('ChangeMail')}
             </button>
           </div>
           <div className="mb-4 flex items-center">
             <div className="w-1/2 text-lg">**********</div>
-            <button className="bg-secondary-color text-text-color ml-4 rounded px-4 py-2">
+            <button className="ml-4 rounded bg-secondary-color px-4 py-2 text-text-color">
               {t('ChangePass')}
             </button>
           </div>
         </div>
-        <div className="bg-primary-color text-text-color rounded-lg p-6 shadow-lg">
+        <div className="rounded-lg bg-primary-color p-6 text-text-color shadow-lg">
           <h2 className="mb-4 text-xl font-bold">{t('SettingsCustomization')}</h2>
           <div className="mb-4 flex items-center">
             <div className="w-1/2 text-lg">{t('Theme')}</div>
@@ -93,7 +97,7 @@ const SettingsPage = () => {
               <div>
                 <button
                   type="button"
-                  className="border-primary-border-color bg-secondary-color text-text-color inline-flex w-full justify-center rounded-md border px-4 py-2 text-sm font-medium shadow-sm"
+                  className="border-primary-border-color inline-flex w-full justify-center rounded-md border bg-secondary-color px-4 py-2 text-sm font-medium text-text-color shadow-sm"
                   id="theme-menu-button"
                   aria-expanded="true"
                   aria-haspopup="true"
@@ -118,7 +122,7 @@ const SettingsPage = () => {
 
               {themeDropdownOpen && (
                 <div
-                  className="ring-secondary-color bg-primary-color absolute right-0 mt-2 w-56 origin-top-right rounded-md shadow-lg ring-1 ring-opacity-5"
+                  className="ring-secondary-color absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-primary-color shadow-lg ring-1 ring-opacity-5"
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="theme-menu-button"
@@ -128,7 +132,7 @@ const SettingsPage = () => {
                       <button
                         key={theme.value}
                         onClick={() => changeTheme(theme.value)}
-                        className="hover:bg-primary-hover-color text-text-color flex w-full items-center px-4 py-2 text-sm"
+                        className="hover:bg-primary-hover-color flex w-full items-center px-4 py-2 text-sm text-text-color"
                         role="menuitem"
                       >
                         <span
@@ -149,7 +153,7 @@ const SettingsPage = () => {
               <div>
                 <button
                   type="button"
-                  className="border-primary-border-color bg-secondary-color text-text-color inline-flex w-full justify-center rounded-md border px-4 py-2 text-sm font-medium shadow-sm"
+                  className="border-primary-border-color inline-flex w-full justify-center rounded-md border bg-secondary-color px-4 py-2 text-sm font-medium text-text-color shadow-sm"
                   id="language-menu-button"
                   aria-expanded="true"
                   aria-haspopup="true"
@@ -174,7 +178,7 @@ const SettingsPage = () => {
 
               {languageDropdownOpen && (
                 <div
-                  className="ring-secondary-color bg-primary-color absolute right-0 mt-2 w-56 origin-top-right rounded-md shadow-lg ring-1 ring-opacity-5"
+                  className="ring-secondary-color absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-primary-color shadow-lg ring-1 ring-opacity-5"
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="language-menu-button"
@@ -184,7 +188,7 @@ const SettingsPage = () => {
                       <button
                         key={lang.value}
                         onClick={() => changeLanguage(lang.value)}
-                        className="hover:bg-primary-hover-color text-text-color flex w-full items-center px-4 py-2 text-sm"
+                        className="hover:bg-primary-hover-color flex w-full items-center px-4 py-2 text-sm text-text-color"
                         role="menuitem"
                       >
                         {lang.name}
