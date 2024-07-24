@@ -18,7 +18,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
       <head>
@@ -30,7 +29,9 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <ThemeProvider><ClientWrapper>{children}</ClientWrapper></ThemeProvider>
+        <ThemeProvider>
+          <ClientWrapper>{children}</ClientWrapper>
+        </ThemeProvider>
       </body>
     </html>
   );

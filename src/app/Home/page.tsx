@@ -1,6 +1,10 @@
+'use client';
+
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const ProfilePage = () => {
+  const { t, i18n } = useTranslation('common');
   return (
     <div className="bg-bg-color flex min-h-screen justify-center p-6">
       <div className="w-[85vw]">
@@ -20,15 +24,15 @@ const ProfilePage = () => {
           <div className="mt-6 flex justify-around">
             <div className="text-center">
               <div className="text-3xl font-bold">177</div>
-              <div>Friends</div>
+              <div>{t('Friends')}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold">12</div>
-              <div>Posts</div>
+              <div>{t('Posts')}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold">33</div>
-              <div>Achievements</div>
+              <div>{t('Achievements')}</div>
             </div>
           </div>
         </div>

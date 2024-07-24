@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 
 export default function Welcome() {
   const router = useRouter();
+  const { t } = useTranslation('common');
 
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
@@ -29,23 +31,20 @@ export default function Welcome() {
     <div className="bg-bg-color flex min-h-screen items-center justify-center font-abril">
       <div className="flex h-[90%] w-[90%] items-center justify-around">
         <div className="flex-1">
-          <h2 className="text-text-color text-2xl">Welcome to Wolfy.space!</h2>
+          <h2 className="text-text-color text-2xl">{t('welcome')}</h2>
           <br />
-          <h2 className="text-text-color text-2xl">
-            Customize your profile, share posts, play games, and connect with friends in the
-            ultimate social network experience
-          </h2>
+          <h2 className="text-text-color text-2xl">{t('description')}</h2>
           <div className="bg-primary-color mt-10 flex min-h-fit w-[40vw] flex-col items-center rounded-[10px] p-5 shadow-md">
             <div className="flex w-[50%] justify-between">
               <div className="flex flex-col items-center">
                 <span className="text-text-color cursor-pointer p-2.5 text-2xl transition-colors duration-300">
-                  Sign In
+                  {t('SignIn')}
                 </span>
                 <div className="bg-text-color h-[8px] w-[70px] self-center rounded-md transition-colors duration-300" />
               </div>
               <div className="flex flex-col items-center">
                 <span className="text-text-color cursor-pointer p-2.5 text-2xl transition-colors duration-300">
-                  Sign Up
+                  {t('SignUp')}
                 </span>
                 <div className="bg-text-color h-[8px] w-[70px] self-center rounded-md transition-colors duration-300" />
               </div>

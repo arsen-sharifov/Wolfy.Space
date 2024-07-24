@@ -10,9 +10,12 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "i18next": "^23.12.2",
     "next": "14.2.5",
-    "react": "^18",
-    "react-dom": "^18"
+    "next-i18next": "^15.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
