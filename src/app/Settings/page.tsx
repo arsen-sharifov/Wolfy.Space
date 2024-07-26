@@ -1,59 +1,20 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+
+import React from 'react';
+import { useSettings } from './useSettigns';
 
 const SettingsPage = () => {
-  const { t, i18n } = useTranslation('common');
-  const themes = [
-    { name: 'Default', value: 'root', color: '#2563EB' },
-    { name: 'Light', value: 'light', color: '#e8e8e8' },
-    { name: 'Dark', value: 'dark', color: '#121212' },
-    { name: 'Lavender', value: 'lavender', color: '#9370db' },
-    { name: 'Forest', value: 'forest', color: '#4caf50' },
-    { name: 'Orange', value: 'orange', color: '#fb8c00' },
-    { name: 'Pink', value: 'pink', color: '#f8bbd0' },
-    { name: 'Aquamarine', value: 'aquamarine', color: '#00acc1' },
-  ];
-
-  const languages = [
-    { name: 'English', value: 'en' },
-    { name: 'Deutsch', value: 'de' },
-    { name: 'Português', value: 'pt' },
-    { name: 'Français', value: 'fr' },
-    { name: 'Українська', value: 'ua' },
-    { name: 'Polski', value: 'pl' },
-  ];
-
-  const [themeDropdownOpen, setThemeDropdownOpen] = useState(false);
-  const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
-  const [theme, setTheme] = useState<string>('light');
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const storedTheme = localStorage.getItem('theme') || 'light';
-      setTheme(storedTheme);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-    }
-  }, [theme]);
-
-  const changeTheme = (newTheme: string) => {
-    setTheme(newTheme);
-    setThemeDropdownOpen(false);
-  };
-
-  const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('language', lang);
-    }
-    setLanguageDropdownOpen(false);
-  };
+  const {
+    t,
+    themeDropdownOpen,
+    setThemeDropdownOpen,
+    languageDropdownOpen,
+    setLanguageDropdownOpen,
+    changeTheme,
+    changeLanguage,
+    THEMES,
+    LANGUAGES,
+  } = useSettings();
 
   return (
     <div className="flex min-h-screen justify-center bg-bg-color p-6">
@@ -130,7 +91,7 @@ const SettingsPage = () => {
                   aria-labelledby="theme-menu-button"
                 >
                   <div className="py-1" role="none">
-                    {themes.map((theme) => (
+                    {THEMES.map((theme) => (
                       <button
                         key={theme.value}
                         onClick={() => changeTheme(theme.value)}
@@ -186,7 +147,7 @@ const SettingsPage = () => {
                   aria-labelledby="language-menu-button"
                 >
                   <div className="py-1" role="none">
-                    {languages.map((lang) => (
+                    {LANGUAGES.map((lang) => (
                       <button
                         key={lang.value}
                         onClick={() => changeLanguage(lang.value)}
