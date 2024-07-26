@@ -5,12 +5,17 @@ import { useTranslation } from 'react-i18next';
 
 const ProfilePage = () => {
   const { t } = useTranslation('common');
+
   return (
     <div className="flex min-h-screen justify-center bg-bg-color p-6">
       <div className="w-[85vw]">
         <div className="mb-8 rounded-lg bg-primary-color p-6 text-text-color shadow-lg">
           <div className="mb-4 flex items-center">
-            <img src="/avatar.png" alt="Avatar" className="mr-4 h-24 w-24 rounded-full" />
+            <img
+              src="/assets/home/images/avatar.png"
+              alt="Avatar"
+              className="mr-4 h-24 w-24 rounded-full"
+            />
             <div>
               <h2 className="text-2xl font-bold">
                 Jafry Goodman
@@ -38,7 +43,11 @@ const ProfilePage = () => {
         </div>
         <div className="flex flex-col items-center space-y-6">
           <div className="w-full max-w-2xl rounded-lg bg-primary-color p-6 shadow-lg">
-            <img src="/post_1.png" alt="Post" className="mb-4 h-auto w-full rounded" />
+            <img
+              src="assets/home/images/post_1.png"
+              alt="Post"
+              className="mb-4 h-auto w-full rounded"
+            />
             <p>
               The popular game `Mystic Forest Adventures` has just released a highly anticipated
               expansion pack. This new update introduces several new levels, magical creatures, and
@@ -49,7 +58,11 @@ const ProfilePage = () => {
             </p>
           </div>
           <div className="w-full max-w-2xl rounded-lg bg-primary-color p-6 shadow-lg">
-            <img src="/post_2.png" alt="Post" className="mb-4 h-auto w-full rounded" />
+            <img
+              src="assets/home/images/post_2.png"
+              alt="Post"
+              className="mb-4 h-auto w-full rounded"
+            />
             <p>
               Renowned DJ and music producer, DJ SonicWave, has released his latest album, `Eclipse
               of Sound.` The album features an innovative mix of electronic beats, ambient

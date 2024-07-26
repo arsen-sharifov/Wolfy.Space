@@ -1,45 +1,7 @@
 'use client';
 
 import React from 'react';
-
-const games = [
-  {
-    id: 1,
-    name: 'Crystal Kingdom',
-    image: '/Games/CrystalKingdom.webp',
-    description: 'Description for game 1',
-  },
-  {
-    id: 2,
-    name: 'Mystic Forest Adventure',
-    image: '/Games/MysticForestAdventure.webp',
-    description: 'Description for game 2',
-  },
-  {
-    id: 3,
-    name: 'Sky Pirates',
-    image: '/Games/SkyPirates.webp',
-    description: 'Description for game 3',
-  },
-  {
-    id: 4,
-    name: 'Vampire Hunters',
-    image: '/Games/VampireHunters.webp',
-    description: 'Description for game 4',
-  },
-  {
-    id: 5,
-    name: 'Wolfy Cards',
-    image: '/Games/WolfyCards.webp',
-    description: 'Description for game 5',
-  },
-  {
-    id: 6,
-    name: 'Zombie Apocalypse',
-    image: '/Games/ZombieApocalypse.webp',
-    description: 'Description for game 6',
-  },
-];
+import { GAMES } from './constants';
 
 interface Params {
   id: string;
@@ -48,7 +10,7 @@ interface Params {
 const GameDetailPage = ({ params }: { params: Params }) => {
   const { id } = params;
 
-  const game = games.find((game) => game.id === parseInt(id, 10));
+  const game = GAMES.find((game) => game.id === parseInt(id, 10));
 
   if (!game) {
     return <div>Game not found</div>;
