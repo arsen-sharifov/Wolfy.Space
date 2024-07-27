@@ -74,7 +74,7 @@ export default function Welcome() {
           </div>
         </div>
         <div className="flex flex-1 items-center justify-center">
-          <img src="/assets/general/images/logo.png" alt="Logo" width={544} height={674} />
+          <img src="/assets/general/images/logo.webp" alt="Logo" width={723} height={896} />
         </div>
       </div>
     </div>
