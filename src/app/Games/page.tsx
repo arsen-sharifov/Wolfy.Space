@@ -6,8 +6,8 @@ import { GAMES } from './constants';
 
 const GamesPage = () => {
   return (
-    <div className="flex min-h-screen justify-center bg-bg-color p-6">
-      <div className="w-[85vw]">
+    <div className="box-border flex min-h-screen w-[85vw] justify-center bg-bg-color p-6">
+      <div className="w-full">
         <h2 className="mb-4 text-xl font-bold text-text-color">Wolfy Games</h2>
         <div className="grid grid-cols-3 gap-4">
           {GAMES.map((game) => (

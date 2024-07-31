@@ -53,7 +53,7 @@ const Sidebar = () => {
       </nav>
       <div className="flex-grow"></div>
       <div className="mb-4">
-        <img src="/assets/general/images/logo.png" alt="Logo" className="h-46" />
+        <img src="/assets/general/images/logo.webp" alt="Logo" className="h-46" />
       </div>
     </div>
   );

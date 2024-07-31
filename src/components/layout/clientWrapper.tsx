@@ -1,9 +1,10 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import Sidebar from './sidebar';
+import Sidebar from './side-menu';
+import BurgerMenu from './burger-menu';
 import { I18nextProvider } from 'react-i18next';
-import i18n, { I18nInit } from '../../i18n';
+import i18n, { I18nInit } from '../../../i18n';
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 const HIDE_SIDEBAR_ROUTES = ['/', '/login', '/signup'];
@@ -41,16 +42,29 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
 const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
+  const [isMobile, setIsMobile] = useState(false);
 
-  const shouldShowSidebar = !HIDE_SIDEBAR_ROUTES.includes(pathname);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const shouldShowMenu = !HIDE_SIDEBAR_ROUTES.includes(pathname);
 
   return (
     <I18nextProvider i18n={i18n}>
       <I18nInit />
       <ThemeProvider>
         <div className="layout flex max-w-full">
-          {shouldShowSidebar && <Sidebar />}
-          <main className={shouldShowSidebar ? 'ml-[15vw] w-full' : 'w-full'}>{children}</main>
+          {shouldShowMenu && <>{isMobile ? <BurgerMenu /> : <Sidebar />}</>}
+          <main className={`w-full ${shouldShowMenu ? (isMobile ? 'pt-12' : 'ml-[15vw]') : ''}`}>
+            {children}
+          </main>
         </div>
       </ThemeProvider>
     </I18nextProvider>

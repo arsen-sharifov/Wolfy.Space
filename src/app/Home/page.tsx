@@ -7,8 +7,8 @@ const ProfilePage = () => {
   const { t } = useTranslation('common');
 
   return (
-    <div className="flex min-h-screen justify-center bg-bg-color p-6">
-      <div className="w-[85vw]">
+    <div className="box-border flex min-h-screen w-[85vw] justify-center bg-bg-color p-6">
+      <div className="w-full">
         <div className="mb-8 rounded-lg bg-primary-color p-6 text-text-color shadow-lg">
           <div className="mb-4 flex items-center">
             <img
