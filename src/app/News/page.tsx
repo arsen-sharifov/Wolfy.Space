@@ -5,8 +5,8 @@ import { SHORTS, NEWS } from './constants';
 
 const NewsPage = () => {
   return (
-    <div className="min-h-screen bg-bg-color p-6">
-      <div className="mx-auto w-[85vw]">
+    <div className="box-border min-h-screen w-[85vw] bg-bg-color p-6">
+      <div className="w-full">
         <h2 className="mb-4 text-xl font-bold text-text-color">Wolfy Shorts</h2>
         <div className="mb-8 grid grid-cols-6 gap-4">
           {SHORTS.map((short) => (
