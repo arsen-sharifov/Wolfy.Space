@@ -8,17 +8,7 @@ import Button from '../../components/common/button';
 import ButtonDropdown from '../../components/common/button-dropdown';
 
 const SettingsPage: React.FC = () => {
-  const {
-    t,
-    themeDropdownOpen,
-    setThemeDropdownOpen,
-    languageDropdownOpen,
-    setLanguageDropdownOpen,
-    changeTheme,
-    changeLanguage,
-    THEMES,
-    LANGUAGES,
-  } = useSettings();
+  const { t, changeTheme, changeLanguage, THEMES, LANGUAGES } = useSettings();
 
   return (
     <div className="box-border flex min-h-screen w-[85vw] justify-center bg-bg-color p-6">
