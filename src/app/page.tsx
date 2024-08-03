@@ -1,13 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import SignInModal from '../components/modals/auth-modal';
 import wolfImage from '../../public/assets/general/images/welcome.png';
 
 export default function Welcome() {
-  const router = useRouter();
   const [showModal, setShowModal] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
 
