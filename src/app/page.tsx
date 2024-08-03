@@ -2,79 +2,58 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
+import SignInModal from '../components/modals/auth-modal';
+import wolfImage from '../../public/assets/general/images/welcome.png';
 
 export default function Welcome() {
   const router = useRouter();
-  const { t } = useTranslation('common');
+  const [showModal, setShowModal] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
 
-  const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = (event: any) => {
-    setLogin(event.target.value);
+  const handleGetStarted = () => {
+    setShowModal(true);
   };
 
-  const handlePassword = (event: any) => {
-    setPassword(event.target.value);
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
-  const handleCredentials = () => {
-    if (login === '123' && password === '123') {
-      router.push('/Home');
-    } else {
-      alert('wrong pass');
-    }
+  const toggleForm = () => {
+    setIsSignUp(!isSignUp);
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-bg-color font-abril">
-      <div className="flex h-[90%] w-[90%] items-center justify-around">
-        <div className="flex-1">
-          <h2 className="text-2xl text-text-color">{t('welcome')}</h2>
-          <br />
-          <h2 className="text-2xl text-text-color">{t('description')}</h2>
-          <div className="mt-10 flex min-h-fit w-[40vw] flex-col items-center rounded-[10px] bg-primary-color p-5 shadow-md">
-            <div className="flex w-[50%] justify-between">
-              <div className="flex flex-col items-center">
-                <span className="cursor-pointer p-2.5 text-2xl text-text-color transition-colors duration-300">
-                  {t('SignIn')}
-                </span>
-                <div className="bg-text-color h-[8px] w-[70px] self-center rounded-md transition-colors duration-300" />
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="cursor-pointer p-2.5 text-2xl text-text-color transition-colors duration-300">
-                  {t('SignUp')}
-                </span>
-                <div className="bg-text-color h-[8px] w-[70px] self-center rounded-md transition-colors duration-300" />
+    <div className="flex min-h-screen items-center justify-center bg-white font-sans">
+      <div className="flex h-full w-full">
+        <div className="flex flex-1 flex-col justify-center p-10">
+          {showModal ? (
+            <SignInModal
+              isVisible={showModal}
+              onClose={handleCloseModal}
+              isSignUp={isSignUp}
+              toggleForm={toggleForm}
+            />
+          ) : (
+            <div className="flex flex-col items-center justify-center">
+              <div>
+                <h1 className="mb-8 text-4xl font-bold text-gray-900">Welcome to Wolfy.space!</h1>
+                <p className="mb-6 max-w-[520px] text-lg text-gray-700">
+                  Customize your profile, share posts, play games, and connect with friends in the
+                  ultimate social network experience.
+                </p>
+                <button
+                  onClick={handleGetStarted}
+                  className="mt-5 w-[128px] rounded bg-gray-300 px-4 py-2 text-gray-900 hover:bg-gray-400"
+                >
+                  Get Started
+                </button>
               </div>
             </div>
-            <div className="mt-8 flex w-[80%] flex-col items-center">
-              <input
-                type="text"
-                placeholder="Login"
-                value={login}
-                onChange={handleLogin}
-                className="my-2.5 h-[45px] w-[100%] rounded-md border-none bg-card-bg-color p-2.5 text-lg text-text-color"
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={handlePassword}
-                className="my-2.5 h-[45px] w-[100%] rounded-md border-none bg-card-bg-color p-2.5 text-lg text-text-color"
-              />
-              <button
-                onClick={handleCredentials}
-                className="mt-5 w-[100px] cursor-pointer self-end rounded-md border-none bg-primary-color p-2.5 text-lg text-white transition-colors duration-300 hover:bg-secondary-color"
-              >
-                Go!
-              </button>
-            </div>
-          </div>
+          )}
         </div>
-        <div className="flex flex-1 items-center justify-center">
-          <img src="/assets/general/images/logo.webp" alt="Logo" width={723} height={896} />
+        <div className="relative h-[100vh] flex-1">
+          <Image src={wolfImage} alt="Wolf" layout="fill" objectFit="cover" />
         </div>
       </div>
     </div>
