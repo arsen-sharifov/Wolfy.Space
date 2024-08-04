@@ -1,4 +1,6 @@
 import React from 'react';
+import { handleSubmit } from './utils';
+import { buttons } from './constants';
 
 export default function SignInModal({ isVisible, onClose, isSignUp, toggleForm }: any) {
   if (!isVisible) return null;
@@ -103,54 +105,22 @@ export default function SignInModal({ isVisible, onClose, isSignUp, toggleForm }
           <span className="px-2 text-gray-600">or</span>
           <hr className="w-full border-gray-300" />
         </div>
-        <div className="mt-4 space-y-2">
-          <button
-            type="button"
-            className="flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
-          >
-            <span className="sr-only">
-              {isSignUp ? 'Sign up with Google' : 'Sign in with Google'}
-            </span>
-            <svg className="h-5 w-5" viewBox="0 0 24 24">
-              <path
-                d="M21.35 11.1h-9.1v2.5h5.4a5.5 5.5 0 0 1-5.4 4.5c-3.2 0-5.8-2.6-5.8-5.8s2.6-5.8 5.8-5.8c1.5 0 2.8.6 3.8 1.5l1.7-1.7a8 8 0 1 0-5.5 13.5c4.4 0 8-3.6 8-8 0-.5-.1-1-.2-1.4z"
-                fill="#4285f4"
+        <div className="mt-4 grid grid-cols-2 gap-4">
+          {buttons.map((button) => (
+            <button
+              key={button.provider}
+              onClick={handleSubmit(button.provider)}
+              className={`flex h-11 w-full items-center justify-center rounded-lg ${button.color} ${button.textColor} ${button.hoverColor}`}
+            >
+              <img
+                src={button.icon}
+                alt={`${button.name} logo`}
+                style={{ width: button.size[0], height: button.size[1] }}
+                className="mr-3"
               />
-            </svg>
-            <span className="ml-2">{isSignUp ? 'Sign up with Google' : 'Sign in with Google'}</span>
-          </button>
-          <button
-            type="button"
-            className="flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
-          >
-            <span className="sr-only">
-              {isSignUp ? 'Sign up with Facebook' : 'Sign in with Facebook'}
-            </span>
-            <svg className="h-5 w-5" viewBox="0 0 24 24">
-              <path
-                d="M22 12c0-5.5-4.5-10-10-10s-10 4.5-10 10c0 4.9 3.5 8.9 8 9.8v-6.8h-2.4v-3h2.4v-2.3c0-2.4 1.5-3.7 3.6-3.7 1 0 1.8.1 2 .1v2.3h-1.4c-1.2 0-1.5.6-1.5 1.5v1.8h3l-.5 3h-2.5v6.8c4.5-.9 8-4.9 8-9.8z"
-                fill="#1877f2"
-              />
-            </svg>
-            <span className="ml-2">
-              {isSignUp ? 'Sign up with Facebook' : 'Sign in with Facebook'}
-            </span>
-          </button>
-          <button
-            type="button"
-            className="flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
-          >
-            <span className="sr-only">
-              {isSignUp ? 'Sign up with Apple' : 'Sign in with Apple'}
-            </span>
-            <svg className="h-5 w-5" viewBox="0 0 24 24">
-              <path
-                d="M16.8 13.2c-.2-.1-.3-.3-.3-.4-.3-.5-.2-1.3.1-1.8.3-.6.7-1.3 1-1.7-.5-.1-1.1-.2-1.6-.2-1.4 0-2.6.8-3.2.8-.6 0-1.6-.7-2.7-.7-1.4 0-2.7.8-3.4 2.1-.4.7-.7 1.4-.7 2.2 0 .7.2 1.5.4 1.9.2.4.5 1 1 1.4.5.3.9.7 1.5.7.6 0 1.2-.2 1.7-.5.5-.3 1.1-.5 1.7-.5.6 0 1.1.2 1.6.4.3.2.6.3 1.1.3.5 0 1.1-.3 1.6-.7.5-.5.9-1.1 1.1-1.8-.6-.2-1.2-.5-1.6-.9-.4-.4-.7-.8-.8-1.3zm-3.5-6.5c.4-.5.7-1.1.7-1.7 0-.1 0-.2 0-.3-.5 0-1.2.3-1.5.7-.4.4-.7 1-.7 1.6 0 .1 0 .2.1.3.5 0 1.2-.4 1.4-.6z"
-                fill="#000000"
-              />
-            </svg>
-            <span className="ml-2">{isSignUp ? 'Sign up with Apple' : 'Sign in with Apple'}</span>
-          </button>
+              <span className="text-[14px] font-medium">{button.label}</span>
+            </button>
+          ))}
         </div>
       </form>
     </div>
