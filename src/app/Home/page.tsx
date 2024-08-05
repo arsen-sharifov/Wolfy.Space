@@ -1,10 +1,27 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const ProfilePage = () => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === 'loading') return; // Якщо сесія завантажується, не робимо нічого
+
+    if (!session) {
+      router.push('/');
+    }
+  }, [status, session, router]);
+
   const { t } = useTranslation('common');
+
+  if (status === 'loading' || !session) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="flex min-h-screen justify-center bg-bg-color p-6">
@@ -12,13 +29,13 @@ const ProfilePage = () => {
         <div className="mb-8 rounded-lg bg-primary-color p-6 text-text-color shadow-lg">
           <div className="mb-4 flex items-center">
             <img
-              src="/assets/home/images/avatar.png"
+              src={session?.user?.image || '/assets/home/images/avatar.png'}
               alt="Avatar"
               className="mr-4 h-24 w-24 rounded-full"
             />
             <div>
               <h2 className="text-2xl font-bold">
-                Jafry Goodman
+                {session?.user?.name}
                 <span className="rounded bg-pink-500 px-2 py-1 text-sm text-text-color">admin</span>
               </h2>
               <p className="mt-1">
