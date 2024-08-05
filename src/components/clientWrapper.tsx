@@ -5,7 +5,7 @@ import Sidebar from './sidebar';
 import { I18nextProvider } from 'react-i18next';
 import i18n, { I18nInit } from '../../i18n';
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-
+import { SessionProvider } from 'next-auth/react';
 const HIDE_SIDEBAR_ROUTES = ['/', '/login', '/signup'];
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -45,15 +45,17 @@ const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
   const shouldShowSidebar = !HIDE_SIDEBAR_ROUTES.includes(pathname);
 
   return (
-    <I18nextProvider i18n={i18n}>
-      <I18nInit />
-      <ThemeProvider>
-        <div className="layout flex max-w-full">
-          {shouldShowSidebar && <Sidebar />}
-          <main className={shouldShowSidebar ? 'ml-[15vw] w-full' : 'w-full'}>{children}</main>
-        </div>
-      </ThemeProvider>
-    </I18nextProvider>
+    <SessionProvider>
+      <I18nextProvider i18n={i18n}>
+        <I18nInit />
+        <ThemeProvider>
+          <div className="layout flex max-w-full">
+            {shouldShowSidebar && <Sidebar />}
+            <main className={shouldShowSidebar ? 'ml-[15vw] w-full' : 'w-full'}>{children}</main>
+          </div>
+        </ThemeProvider>
+      </I18nextProvider>
+    </SessionProvider>
   );
 };
 
