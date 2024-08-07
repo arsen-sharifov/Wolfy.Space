@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -9,9 +10,6 @@ const withAuth = (WrappedComponent: any, redirectToHome: boolean = false) => {
     const mode = process.env.NEXT_PUBLIC_MODE === 'SKIP';
 
     useEffect(() => {
-      console.log('status:', status);
-      console.log('session:', session);
-
       if (!mode && status === 'unauthenticated' && session === null && !redirectToHome) {
         router.push('/');
       } else if (mode || (status === 'authenticated' && redirectToHome)) {
