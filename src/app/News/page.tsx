@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import withAuth from '../../components/with-auth';
 import { SHORTS, NEWS } from './constants';
 
 const NewsPage = () => {
@@ -37,4 +38,4 @@ const NewsPage = () => {
   );
 };
 
-export default NewsPage;
+export default withAuth(NewsPage);
