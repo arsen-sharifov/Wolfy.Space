@@ -1,27 +1,13 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import withAuth from '../../components/with-auth';
+import { useTranslation } from 'react-i18next';
 
 const ProfilePage = () => {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (status === 'loading') return; // Якщо сесія завантажується, не робимо нічого
-
-    if (!session) {
-      router.push('/');
-    }
-  }, [status, session, router]);
-
+  const { data: session } = useSession();
   const { t } = useTranslation('common');
-
-  if (status === 'loading' || !session) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className="flex min-h-screen justify-center bg-bg-color p-6">
@@ -96,4 +82,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default withAuth(ProfilePage);

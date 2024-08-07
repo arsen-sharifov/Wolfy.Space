@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { GAMES } from './constants';
+import withAuth from '../../../components/with-auth';
 
 interface Params {
   id: string;
@@ -29,4 +30,4 @@ const GameDetailPage = ({ params }: { params: Params }) => {
   );
 };
 
-export default GameDetailPage;
+export default withAuth(GameDetailPage);
