@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import withAuth from '../../components/with-auth';
 import { useSettings } from './useSettigns';
 
 const SettingsPage = () => {
@@ -168,4 +169,4 @@ const SettingsPage = () => {
   );
 };
 
-export default SettingsPage;
+export default withAuth(SettingsPage);

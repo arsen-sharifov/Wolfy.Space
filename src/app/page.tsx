@@ -4,8 +4,9 @@ import { useState } from 'react';
 import Image from 'next/image';
 import SignInModal from '../components/modals/auth-modal';
 import wolfImage from '../../public/assets/general/images/welcome.png';
+import withAuth from '../components/with-auth'; // змініть шлях до HOC
 
-export default function Welcome() {
+function Welcome() {
   const [showModal, setShowModal] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
 
@@ -57,3 +58,5 @@ export default function Welcome() {
     </div>
   );
 }
+
+export default withAuth(Welcome, true); // обгорніть початкову сторінку HOC та додайте прапорець перенаправлення на Home

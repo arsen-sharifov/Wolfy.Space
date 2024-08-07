@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import withAuth from '../../components/with-auth';
 import { GAMES } from './constants';
 
 const GamesPage = () => {
@@ -28,4 +29,4 @@ const GamesPage = () => {
   );
 };
 
-export default GamesPage;
+export default withAuth(GamesPage);
