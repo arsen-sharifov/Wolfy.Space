@@ -7,20 +7,19 @@ const withAuth = (WrappedComponent: any, redirectToHome: boolean = false) => {
   return (props: any) => {
     const { data: session, status } = useSession();
     const router = useRouter();
-    const mode = process.env.NEXT_PUBLIC_MODE === 'SKIP';
+    const mode = process.env.NEXT_PUBLIC_MODE_AUTH === 'SKIP';
 
     useEffect(() => {
       if (!mode && status === 'unauthenticated' && session === null && !redirectToHome) {
         router.push('/');
-      } else if (mode || (status === 'authenticated' && redirectToHome)) {
+      } else if (status === 'authenticated' && redirectToHome) {
         router.push('/Home');
       }
     }, [status, session, router, mode, redirectToHome]);
 
     if (
-      mode &&
-      (status === 'loading' ||
-        (status === 'unauthenticated' && session === null && !redirectToHome))
+      (!mode && status === 'loading') ||
+      (!mode && status === 'unauthenticated' && session === null && !redirectToHome)
     ) {
       return <div>Loading...</div>;
     }

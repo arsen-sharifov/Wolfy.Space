@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import Sidebar from './sidebar';
+import Sidebar from './sidebar/sidebar';
 import { I18nextProvider } from 'react-i18next';
 import i18n, { I18nInit } from '../../i18n';
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
@@ -51,7 +51,7 @@ const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
         <ThemeProvider>
           <div className="layout flex max-w-full">
             {shouldShowSidebar && <Sidebar />}
-            <main className={shouldShowSidebar ? 'ml-[15vw] w-full' : 'w-full'}>{children}</main>
+            <main className={shouldShowSidebar ? 'ml-[16px] w-full' : 'w-full'}>{children}</main>
           </div>
         </ThemeProvider>
       </I18nextProvider>
