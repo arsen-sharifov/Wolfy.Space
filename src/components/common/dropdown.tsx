@@ -1,15 +1,21 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, FC } from 'react';
 
-const Dropdown = ({ label, items, onSelect }: any) => {
+interface DropdownProps {
+  label: string;
+  items: { name: string; value: string; color?: string }[];
+  onSelect: (value: string) => void;
+}
+
+const Dropdown: FC<DropdownProps> = ({ label, items, onSelect }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
-  const handleClickOutside = (event: any) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  const handleClickOutside = (event: Event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
       setDropdownOpen(false);
     }
   };
@@ -30,14 +36,18 @@ const Dropdown = ({ label, items, onSelect }: any) => {
     <div className="relative inline-block text-left" ref={dropdownRef}>
       <button
         type="button"
-        className={`inline-flex cursor-pointer items-center justify-center rounded-lg px-4 py-2 text-sm font-medium shadow-lg transition-all duration-300 ${dropdownOpen ? 'bg-bg-color text-text-color' : 'bg-bg-color text-text-color'}`}
+        className={`inline-flex cursor-pointer items-center justify-center rounded-lg px-4 py-2 text-sm font-medium shadow-lg transition-all duration-300 ${
+          dropdownOpen ? 'bg-bg-color text-text-color' : 'bg-bg-color text-text-color'
+        }`}
         onClick={toggleDropdown}
       >
         {label}
         <img
           src="/assets/icons/arrow-down.svg"
           alt="Arrow"
-          className={`ml-2 h-4 w-4 transform transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`}
+          className={`ml-2 h-4 w-4 transform transition-transform duration-300 ${
+            dropdownOpen ? 'rotate-180' : ''
+          }`}
         />
       </button>
 
