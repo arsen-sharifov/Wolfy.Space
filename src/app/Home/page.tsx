@@ -4,6 +4,7 @@ import React from 'react';
 import { useSession } from 'next-auth/react';
 import withAuth from '../../components/with-auth';
 import { useTranslation } from 'react-i18next';
+import PostCard from '../../components/common/postCard';
 
 const ProfilePage = () => {
   const { data: session } = useSession();
@@ -33,37 +34,53 @@ const ProfilePage = () => {
             <div className="col-span-2">
               <h3 className="mb-4 text-xl font-bold text-text-color">Last Posts</h3>
               <div className="space-y-4">
-                <div className="rounded-lg bg-white p-6 shadow-lg">
-                  <img
-                    src="assets/home/images/post_1.png"
-                    alt="Post"
-                    className="mb-4 h-auto w-full rounded"
+                <div className="mt-4 p-2">
+                  <PostCard
+                    authorName="Arsen Sharifov"
+                    authorAvatar="/assets/home/images/avatar.png"
+                    postTime="Thursday, Jun 31, 4:15 PM"
+                    content="I'm going to release my new iOS app really soon, can't wait to share it with you guys to hear a great feedback on this!"
+                    likes={12}
+                    comments={0}
+                    shares={2}
+                    image="/assets/news/images/News_3.png"
                   />
-                  <p>
-                    The popular game `Mystic Forest Adventures` has just released a highly
-                    anticipated expansion pack. This new update introduces several new levels,
-                    magical creatures, and challenging quests. Players can now explore the enchanted
-                    Crystal Caves and battle against the fierce Dragon King. The expansion pack also
-                    includes enhanced graphics and new music tracks, providing a more immersive
-                    gaming experience. Fans are excited about the new content and are eagerly diving
-                    back into the mystical world.
-                  </p>
                 </div>
-                <div className="rounded-lg bg-white p-6 shadow-lg">
-                  <img
-                    src="assets/home/images/post_2.png"
-                    alt="Post"
-                    className="mb-4 h-auto w-full rounded"
+                <div className="p-2">
+                  <PostCard
+                    authorName="Arsen Sharifov"
+                    authorAvatar="/assets/home/images/avatar.png"
+                    postTime="Thursday, Jun 31, 4:15 PM"
+                    content="I'm going to release my new iOS app really soon, can't wait to share it with you guys to hear a great feedback on this!"
+                    likes={12}
+                    comments={0}
+                    shares={2}
+                    image="/assets/news/images/News_5.png"
                   />
-                  <p>
-                    Renowned DJ and music producer, DJ SonicWave, has released his latest album,
-                    `Eclipse of Sound.` The album features an innovative mix of electronic beats,
-                    ambient soundscapes, and collaborations with various artists from around the
-                    world. Critics are praising the album for its unique blend of genres and
-                    cutting-edge production techniques. `Eclipse of Sound` is set to dominate the
-                    charts and has already become a favorite among electronic music enthusiasts.
-                    Fans can stream the album on all major platforms starting today.
-                  </p>
+                </div>
+                <div className="p-2">
+                  <PostCard
+                    authorName="Arsen Sharifov"
+                    authorAvatar="/assets/home/images/avatar.png"
+                    postTime="Thursday, Jun 31, 4:15 PM"
+                    content="I'm going to release my new iOS app really soon, can't wait to share it with you guys to hear a great feedback on this!"
+                    likes={12}
+                    comments={0}
+                    shares={2}
+                    image="/assets/news/images/News_6.png"
+                  />
+                </div>
+                <div className="p-2">
+                  <PostCard
+                    authorName="Arsen Sharifov"
+                    authorAvatar="/assets/home/images/avatar.png"
+                    postTime="Thursday, Jun 31, 4:15 PM"
+                    content="I'm going to release my new iOS app really soon, can't wait to share it with you guys to hear a great feedback on this!"
+                    likes={12}
+                    comments={0}
+                    shares={2}
+                    image="/assets/news/images/News_7.png"
+                  />
                 </div>
               </div>
             </div>

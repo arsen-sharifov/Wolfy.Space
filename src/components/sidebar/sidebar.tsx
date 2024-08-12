@@ -10,23 +10,24 @@ const Sidebar = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleSubMenu = (index) => {
+  const toggleSubMenu = (e, index) => {
+    e.preventDefault();
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   const topItems = menuItems.filter((item) => !item.isBottom);
-  const bottomItems = menuItems.filter((item) => item.isBottom);
 
   return (
-    <div
-      className={`transition-width fixed left-0 top-0 z-10 flex h-screen flex-col bg-primary-color p-3 duration-200 ${
-        isOpen ? 'w-72' : 'w-16'
+    <aside
+      className={`transition-width fixed left-0 top-0 z-50 h-full bg-primary-color p-6 duration-300 ease-in-out ${
+        isOpen ? 'w-64' : 'w-24'
       }`}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
+      style={{ overflowX: 'hidden' }}
     >
-      <div className="mb-4 flex items-center">
-        <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-full bg-gray-300">
+      <div className="flex items-center">
+        <div className="h-10 w-10 flex-shrink-0 rounded-full">
           <img
             src="/assets/home/images/avatar.png"
             alt="Avatar"
@@ -34,67 +35,57 @@ const Sidebar = () => {
           />
         </div>
         {isOpen && (
-          <div className="ml-4">
-            <div className="text-lg text-text-color">Arsen Sharifov</div>
-            <div className="text-sm text-gray-500">arsen.sharifov@gmail.com</div>
-          </div>
+          <h2 className="ml-6 whitespace-nowrap text-xl font-semibold text-text-color">
+            Arsen Sharifov
+          </h2>
         )}
       </div>
-      <nav className="flex flex-grow flex-col space-y-1">
+      <ul className="no-scrollbar mt-6 flex-grow overflow-y-auto overflow-x-hidden">
         {topItems.map((item, index) => (
-          <div key={index} className="group relative">
+          <li key={index} className="group relative">
             <Link href={item.link} legacyBehavior>
-              <a className="flex items-center rounded-md py-2 group-hover:bg-secondary-color">
-                <div className="flex h-10 w-10 items-center justify-center">
-                  <img src={item.icon} alt={`${item.name} icon`} width="24" height="24" />
+              <a className="flex items-center gap-4 rounded-md px-2 py-3 text-text-color transition-colors hover:bg-secondary-color hover:text-text-color">
+                <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center">
+                  <img
+                    src={item.icon}
+                    alt={`${item.name} icon`}
+                    className="h-full w-full object-contain"
+                  />
                 </div>
                 {isOpen && (
-                  <div className="ml-2 flex w-full items-center justify-between text-text-color">
+                  <div className="flex w-full items-center justify-between">
                     <LoadingText isReady={ready}>{t(item.name)}</LoadingText>
                     {item.subItems && (
-                      <span className="ml-2">{activeIndex === index ? '▲' : '▼'}</span>
+                      <img
+                        src="/assets/icons/arrow-down.svg"
+                        alt="Arrow"
+                        className={`h-4 w-4 transition-transform duration-300 ${
+                          activeIndex === index ? 'rotate-180' : ''
+                        }`}
+                        onClick={(e) => toggleSubMenu(e, index)}
+                      />
                     )}
                   </div>
                 )}
               </a>
             </Link>
             {item.subItems && activeIndex === index && isOpen && (
-              <div className="transition-max-height ml-12 mt-2 space-y-1 overflow-hidden duration-200 ease-in-out">
+              <ul className="ml-10 mt-2 space-y-2">
                 {item.subItems.map((subItem, subIndex) => (
-                  <Link key={subIndex} href={subItem.link} legacyBehavior>
-                    <a className="flex items-center rounded-md p-2 group-hover:bg-secondary-color">
-                      <div className="ml-3 h-1 w-6 rotate-45 transform border-b-2 border-l-2 border-white"></div>
-                      <button className="ml-2 w-full text-text-color">
+                  <li key={subIndex}>
+                    <Link href={subItem.link} legacyBehavior>
+                      <a className="block rounded-md p-2 text-sm text-text-color transition-colors hover:bg-secondary-color hover:text-[#161a2d]">
                         <LoadingText isReady={ready}>{t(subItem.name)}</LoadingText>
-                      </button>
-                    </a>
-                  </Link>
+                      </a>
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             )}
-          </div>
+          </li>
         ))}
-      </nav>
-      <div className="my-4 w-full border-t border-gray-300"></div>
-      <nav className="flex flex-col space-y-1">
-        {bottomItems.map((item, index) => (
-          <div key={index} className="group relative">
-            <Link href={item.link} legacyBehavior>
-              <a className="flex items-center rounded-md py-2 group-hover:bg-secondary-color">
-                <div className="flex h-10 w-10 items-center justify-center">
-                  <img src={item.icon} alt={`${item.name} icon`} width="24" height="24" />
-                </div>
-                {isOpen && (
-                  <div className="ml-2 flex w-full items-center justify-between text-text-color">
-                    <LoadingText isReady={ready}>{t(item.name)}</LoadingText>
-                  </div>
-                )}
-              </a>
-            </Link>
-          </div>
-        ))}
-      </nav>
-    </div>
+      </ul>
+    </aside>
   );
 };
 
