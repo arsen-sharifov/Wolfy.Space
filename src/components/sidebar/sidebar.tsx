@@ -10,7 +10,7 @@ const Sidebar = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleSubMenu = (e, index) => {
+  const toggleSubMenu = (e: any, index: any) => {
     e.preventDefault();
     setActiveIndex(activeIndex === index ? null : index);
   };

@@ -8,7 +8,7 @@ const Dropdown = ({ label, items, onSelect }: any) => {
     setDropdownOpen(!dropdownOpen);
   };
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = (event: any) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setDropdownOpen(false);
     }
