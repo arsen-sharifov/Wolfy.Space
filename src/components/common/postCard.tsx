@@ -9,7 +9,7 @@ const PostCard = ({
   comments,
   shares,
   image,
-}) => {
+}: any) => {
   return (
     <div className="rounded-lg bg-white p-4 shadow-lg">
       <div className="flex items-center space-x-2">
