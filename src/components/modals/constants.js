@@ -1,7 +1,7 @@
-const GoogleLogo = '/assets/icons/google-logo.svg';
-const FacebookLogo = '/assets/icons/facebook-logo.svg';
-const RedditLogo = '/assets/icons/reddit-logo.svg';
-const XLogo = '/assets/icons/x-logo-white.svg';
+const GoogleLogo = '/assets/icons/auth-modal/google-logo.svg';
+const FacebookLogo = '/assets/icons/auth-modal/facebook-logo.svg';
+const RedditLogo = '/assets/icons/auth-modal/reddit-logo.svg';
+const XLogo = '/assets/icons/auth-modal/x-logo-white.svg';
 
 export const buttons = [
   {

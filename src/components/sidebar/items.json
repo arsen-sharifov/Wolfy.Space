@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Home",
+    "icon": "/assets/icons/sidebar/light/home.svg",
+    "link": "/Home",
+    "subItems": [
+      {
+        "name": "Profile",
+        "link": "/Home/Profile"
+      },
+      {
+        "name": "Achievements",
+        "link": "/Home/Achievements"
+      }
+    ]
+  },
+  {
+    "name": "News",
+    "icon": "/assets/icons/sidebar/light/news.svg",
+    "link": "/News"
+  },
+  {
+    "name": "Games",
+    "icon": "/assets/icons/sidebar/light/games.svg",
+    "link": "/Games"
+  },
+  {
+    "name": "Settings",
+    "icon": "/assets/icons/sidebar/light/settings.svg",
+    "link": "/Settings"
+  },
+  {
+    "name": "Logout",
+    "icon": "/assets/icons/sidebar/light/logout.svg",
+    "link": "/",
+    "isBottom": true
+  }
+]
