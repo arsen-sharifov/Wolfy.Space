@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import i18n from 'i18next';
+import { RootState } from '../store';
 
 interface LanguageState {
   currentLanguage: string;
