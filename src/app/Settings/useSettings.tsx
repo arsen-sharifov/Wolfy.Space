@@ -1,43 +1,29 @@
-import { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../lib/store/hooks';
+import { setTheme, selectTheme } from '../../lib/store/slices/themeSlice';
+import { setLanguage, selectLanguage } from '../../lib/store/slices/languageSlice';
 import { useTranslation } from 'react-i18next';
 import { THEMES, LANGUAGES } from './constants';
 
 export const useSettings = () => {
-  const { t, i18n } = useTranslation('common');
-
-  const [themeDropdownOpen, setThemeDropdownOpen] = useState(false);
-  const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
-  const [theme, setTheme] = useState<string>('light');
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-    }
-  }, [theme]);
+  const dispatch = useAppDispatch();
+  const theme = useAppSelector(selectTheme);
+  const language = useAppSelector(selectLanguage);
+  const { t } = useTranslation('common');
 
   const changeTheme = (newTheme: string) => {
-    setTheme(newTheme);
-    setThemeDropdownOpen(false);
+    dispatch(setTheme(newTheme));
   };
 
   const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('language', lang);
-    }
-    setLanguageDropdownOpen(false);
+    dispatch(setLanguage(lang));
   };
 
   return {
     t,
-    themeDropdownOpen,
-    setThemeDropdownOpen,
-    languageDropdownOpen,
-    setLanguageDropdownOpen,
     changeTheme,
     changeLanguage,
     theme,
+    language,
     THEMES,
     LANGUAGES,
   };
