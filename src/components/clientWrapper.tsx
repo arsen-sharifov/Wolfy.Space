@@ -1,5 +1,7 @@
 'use client';
 
+import { Provider } from 'react-redux';
+import { store } from '../lib/store/store';
 import { usePathname } from 'next/navigation';
 import Sidebar from './sidebar/sidebar';
 import { I18nextProvider } from 'react-i18next';
@@ -46,15 +48,17 @@ const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <SessionProvider>
-      <I18nextProvider i18n={i18n}>
-        <I18nInit />
-        <ThemeProvider>
-          <div className="layout flex max-w-full">
-            {shouldShowSidebar && <Sidebar />}
-            <main className={shouldShowSidebar ? 'ml-[16px] w-full' : 'w-full'}>{children}</main>
-          </div>
-        </ThemeProvider>
-      </I18nextProvider>
+      <Provider store={store}>
+        <I18nextProvider i18n={i18n}>
+          <I18nInit />
+          <ThemeProvider>
+            <div className="layout flex max-w-full">
+              {shouldShowSidebar && <Sidebar />}
+              <main className={shouldShowSidebar ? 'ml-[16px] w-full' : 'w-full'}>{children}</main>
+            </div>
+          </ThemeProvider>
+        </I18nextProvider>
+      </Provider>
     </SessionProvider>
   );
 };
